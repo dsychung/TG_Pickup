@@ -1,8 +1,8 @@
 <template>
-      <button type="button" class="btn btn-lg btn-block pt-3 pb-3 font-weight-bold mt-1" v-if='title[item_key] && item' :class="[{'btn-primary':isActive},{'btn-secondary':!isActive}]" @click="toggle">{{item_key}} {{index}} {{title[item_key]}} : {{item}} </button>    </template>
+      <button type="button" class="btn pt-2 pb-2 font-weight-bold mt-1 mr-1" v-if='itemList[item_key] && item' :class="[{'btn-primary':isActive},{'btn-secondary':!isActive},itemList[item_key].size,itemList[item_key].btnBlock]" @click="toggle" style="letter-spacing:1px">{{itemList[item_key].title}} : {{item}} </button>    
+</template>
 
 <script>
-
 export default {
   name: "ItemButton",
   props: {
@@ -14,23 +14,56 @@ export default {
   data() {
     return {
       isActive: false,
-      title : {
-        "Email 訂單": "Email",
-        "備註": "備註",
-        "訂單日期": "訂單日期",
-        "店面": "店面",      
-        "其他食材 > 南非酸甜": "南非酸甜",      
+      itemList : {
+        "其他食材 > 南非酸甜": {title:"南非酸甜", size:"btn-lg", btnBlock:""},  
+        "其他食材 > 油蕃茄乾": {title:"油蕃茄乾", size:"btn-lg", btnBlock:""},  
+        "其他食材 > 烤肉醬": {title:"烤肉醬", size:"btn-lg", btnBlock:""},   
+        "其他食材 > 芥末豆子": {title:"芥末豆子", size:"btn-lg", btnBlock:""},  
+        "其他食材 > 黑橄欖": {title:"黑橄欖", size:"btn-lg", btnBlock:""},   
+        "包裝 > 12oz杯": {title:"12oz杯", size:"btn-lg", btnBlock:""},  
+        "包裝 > 16oz杯": {title:"16oz杯", size:"btn-lg", btnBlock:""},   
+        "包裝 > 三折單": {title:"三折單", size:"btn-lg", btnBlock:""},
+        "包裝 > 二杯架": {title:"二杯架", size:"btn-lg", btnBlock:""},   
+        "包裝 > 保鮮膜": {title:"保鮮膜", size:"btn-lg", btnBlock:""},
+        "甜菜根": {title:"甜菜根", size:"btn-lg", btnBlock:""},
+        "白雞": {title:"白雞", size:"btn-lg", btnBlock:"btn-block"},
+        "筆麵": {title:"筆麵", size:"btn-lg", btnBlock:""},
+        "糙米": {title:"糙米", size:"btn-lg", btnBlock:""},
+        "糙米Mix": {title:"糙米Mix", size:"btn-lg", btnBlock:""},
+        "牛肉": {title:"牛肉", size:"btn-lg", btnBlock:"btn-block"},
+        "紅蘿蔔塊": {title:"紅蘿蔔塊", size:"btn-lg", btnBlock:""},
+        "紫米": {title:"紫米", size:"btn-lg", btnBlock:""},
+        "紫薯": {title:"紫薯", size:"btn-lg", btnBlock:""},
+        "紫高麗": {title:"紫高麗", size:"btn-lg", btnBlock:""},
+        "紫高麗_1": {title:"紫高麗_1", size:"btn-lg", btnBlock:""},
+        "綠扁豆": {title:"綠扁豆", size:"btn-lg", btnBlock:""},
+        "羽衣芥藍": {title:"羽衣芥藍", size:"btn-lg", btnBlock:""},
+        "肯瓊烤雞": {title:"肯瓊烤雞", size:"btn-lg", btnBlock:""},
+        "芝麻葉": {title:"芝麻葉", size:"btn-lg", btnBlock:""},
+        "蒸南瓜": {title:"蒸南瓜", size:"btn-lg", btnBlock:""},
+        "蒸地瓜": {title:"蒸地瓜", size:"btn-lg", btnBlock:""},
+        "蔬菜肉類 > 培根": {title:"培根", size:"btn-lg", btnBlock:""},
+        "蔬菜肉類 > 火腿": {title:"火腿", size:"btn-lg", btnBlock:""},
+        "蔬菜肉類 > 炸雞": {title:"炸雞", size:"btn-lg", btnBlock:""},
+        "蔬菜肉類 > 煙燻肉絲": {title:"煙燻肉絲", size:"btn-lg", btnBlock:""},
+        "蔬菜肉類 > 蘿蔓葉": {title:"蘿蔓葉", size:"btn-lg", btnBlock:""},
+        "藜麥": {title:"藜麥", size:"btn-lg", btnBlock:""},
+        "藜麥150": {title:"藜麥150", size:"btn-lg", btnBlock:""},
+        "蘿蔓丁": {title:"蘿蔓丁", size:"btn-lg", btnBlock:""},
+        "調味醬料 > 椰奶": {title:"椰奶", size:"btn-lg", btnBlock:""},
+        "調味醬料 > 濃縮番茄": {title:"濃縮番茄", size:"btn-lg", btnBlock:""},
+        "調味醬料 > 酸豆": {title:"酸豆", size:"btn-lg", btnBlock:""},
+        "豆豆": {title:"豆豆", size:"btn-lg", btnBlock:""},
+        "豆豆Mix": {title:"豆豆Mix", size:"btn-lg", btnBlock:""},
+        "綜合生菜": {title:"綜合生菜", size:"btn-lg", btnBlock:"btn-block"}
       }
     }
-   }, 
+  },
   methods: {
     toggle() {
-      console.log('clicked');
-      console.log(this.isActive);
+      //console.log('clicked');
+      //console.log(this.isActive);
       this.isActive = this.isActive ? false : true;
-    },
-    filter() {
-      console.log('filtering');
     }   
   },
   created() {

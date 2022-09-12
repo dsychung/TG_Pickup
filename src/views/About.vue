@@ -2,11 +2,14 @@
   <div class="container">
       <div class="row">
         <div class="col-sm p-1">
-          <div v-for="(record, key, index) in records" :key="key" :id="'item'+index" :record="record" :index="index" >
-            <div class="container mt-2">
-              <!--key word "key" is taken, so must give it a new specific name e.g. item_key-->
-              <ItemButton v-for="(item, item_key, index) in record" :key="item_key" :item_key="item_key" :id="'item'+index"  :item="item"  :index="index" />
+          <div v-for="(record, key, index) in records" :key="key" :id="'item'+index" :record="record" :index="index" class="mb-5" >
+            <h3>{{record['店面']}}</h3>
+            <h5><strong>{{record['訂單日期']}}</strong><br/>
+            {{record['備註']}}</h5>
+            <div class="container mt-3">              
+              <ItemButton v-for="(item, item_key, index) in record" :key="item_key" :item_key="item_key" :id="'item'+index"  :item="item"  :index="index" /><!--key word "key" is taken, so must give it a new specific name e.g. item_key-->
             </div>
+            <small>{{record['Email 訂單']}}</small>
           </div>    
           <!--<ItemButton v-for="(item, i) in items" :button="button" type="button" :id="'item'+(i)" class="btn btn-lg btn-block pt-3 pb-3 font-weight-bold btn-secondary" @click="toggle(i)">{{item.title}} {{item.value}} /> -->
         </div>          
